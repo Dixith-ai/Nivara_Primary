@@ -19,7 +19,6 @@ import { Link } from "react-router-dom";
 import logo from "@/logo/Nivara_logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import MobileNavigation from "@/components/MobileNavigation";
 
 interface Doctor {
   doctor_id: string;
@@ -98,35 +97,32 @@ export default function Doctors() {
             </div>
             <span className="text-xl font-bold text-foreground">NIVARA</span>
           </Link>
-          <div className="flex items-center space-x-2">
-            <Link to="/" className="hidden sm:flex items-center space-x-2 text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-            <MobileNavigation />
-          </div>
+          <Link to="/" className="flex items-center space-x-2 text-muted-foreground hover:text-foreground">
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Home</span>
+          </Link>
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8 sm:py-12">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-            <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8 text-success" />
+        <div className="text-center mb-12">
+          <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Stethoscope className="w-8 h-8 text-success" />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
             Find Dermatologists & Hospitals
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Connect with qualified dermatologists in your area for professional consultation 
             and treatment recommendations.
           </p>
         </div>
 
         {/* Search Filters */}
-        <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm mb-6 sm:mb-8">
-          <CardContent className="p-4 sm:p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm mb-8">
+          <CardContent className="p-6">
+            <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Search Doctors or Hospitals</label>
                 <div className="relative">
@@ -135,7 +131,7 @@ export default function Doctors() {
                     placeholder="Doctor name, hospital, or specialization..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 h-10 sm:h-11"
+                    className="pl-10"
                   />
                 </div>
               </div>
@@ -147,7 +143,7 @@ export default function Doctors() {
                     placeholder="City, area, or PIN code..."
                     value={locationQuery}
                     onChange={(e) => setLocationQuery(e.target.value)}
-                    className="pl-10 h-10 sm:h-11"
+                    className="pl-10"
                   />
                 </div>
               </div>
@@ -157,19 +153,19 @@ export default function Doctors() {
 
         {/* Results */}
         {loading ? (
-          <div className="text-center py-8 sm:py-12">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <Stethoscope className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground animate-pulse" />
+          <div className="text-center py-12">
+            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Stethoscope className="w-6 h-6 text-primary-foreground animate-pulse" />
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base">Loading doctors...</p>
+            <p className="text-muted-foreground">Loading doctors...</p>
           </div>
         ) : (
           <>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 space-y-2 sm:space-y-0">
-              <h2 className="text-xl sm:text-2xl font-semibold">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-semibold">
                 {filteredDoctors.length} Dermatologists Found
               </h2>
-              <Badge variant="outline" className="text-xs sm:text-sm">
+              <Badge variant="outline" className="text-sm">
                 {filteredDoctors.length} results
               </Badge>
             </div>
