@@ -128,21 +128,21 @@ export default function Auth() {
       
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 text-white/70 hover:text-white mb-6 transition-colors duration-200">
-            <ArrowLeft className="w-5 h-5" />
-            <span className="text-lg">Back to Home</span>
+        <div className="text-center mb-6 sm:mb-8">
+          <Link to="/" className="inline-flex items-center space-x-2 text-white/70 hover:text-white mb-4 sm:mb-6 transition-colors duration-200">
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-base sm:text-lg">Back to Home</span>
           </Link>
-          <Link to="/" className="flex items-center justify-center space-x-3 mb-8 hover:opacity-80 transition-all duration-300 group">
-            <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-lg group-hover:neon-glow transition-all duration-300">
+          <Link to="/" className="flex items-center justify-center space-x-2 sm:space-x-3 mb-6 sm:mb-8 hover:opacity-80 transition-all duration-300 group">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden shadow-lg group-hover:neon-glow transition-all duration-300">
               <img src={logo} alt="NIVARA Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-4xl font-black text-gradient">NIVARA</span>
+            <span className="text-3xl sm:text-4xl font-black text-gradient">NIVARA</span>
           </Link>
-          <h1 className="text-4xl font-black text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 sm:mb-4">
             Welcome to NIVARA
           </h1>
-          <p className="text-white/70 text-lg">
+          <p className="text-white/70 text-base sm:text-lg">
             Sign in to access your skin health dashboard
           </p>
         </div>
@@ -159,16 +159,16 @@ export default function Auth() {
                 </TabsTrigger>
               </TabsList>
               
-              <TabsContent value="signin" className="mt-8">
-                <CardTitle className="text-3xl font-black mb-3 text-white">Welcome Back</CardTitle>
-                <CardDescription className="text-lg text-white/70">
+              <TabsContent value="signin" className="mt-6 sm:mt-8">
+                <CardTitle className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3 text-white">Welcome Back</CardTitle>
+                <CardDescription className="text-base sm:text-lg text-white/70">
                   Enter your credentials to access your account
                 </CardDescription>
               </TabsContent>
               
-              <TabsContent value="signup" className="mt-8">
-                <CardTitle className="text-3xl font-black mb-3 text-white">Create Account</CardTitle>
-                <CardDescription className="text-lg text-white/70">
+              <TabsContent value="signup" className="mt-6 sm:mt-8">
+                <CardTitle className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3 text-white">Create Account</CardTitle>
+                <CardDescription className="text-base sm:text-lg text-white/70">
                   Create a new account to get started with NIVARA
                 </CardDescription>
               </TabsContent>
@@ -184,9 +184,9 @@ export default function Auth() {
 
             <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-6">
-                  <div className="space-y-3">
-                    <Label htmlFor="signin-email" className="text-lg font-semibold text-white">Email Address</Label>
+                <form onSubmit={handleSignIn} className="space-y-4 sm:space-y-6">
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signin-email" className="text-base sm:text-lg font-semibold text-white">Email Address</Label>
                     <Input
                       id="signin-email"
                       type="email"
@@ -195,11 +195,11 @@ export default function Auth() {
                       onChange={(e) => setSignInData({ ...signInData, email: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="signin-password" className="text-lg font-semibold text-white">Password</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signin-password" className="text-base sm:text-lg font-semibold text-white">Password</Label>
                     <Input
                       id="signin-password"
                       type="password"
@@ -208,7 +208,7 @@ export default function Auth() {
                       onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
                   
@@ -222,16 +222,16 @@ export default function Auth() {
                     </button>
                   </div>
                   
-                  <Button type="submit" className="w-full h-14 text-lg font-bold gradient-primary hover:neon-glow shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.02] btn-glow rounded-xl" disabled={loading}>
+                  <Button type="submit" className="w-full h-12 sm:h-14 text-base sm:text-lg font-bold gradient-primary hover:neon-glow shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.02] btn-glow rounded-xl" disabled={loading}>
                     {loading ? "Signing In..." : "Sign In"}
                   </Button>
                 </form>
               </TabsContent>
 
               <TabsContent value="signup">
-                <form onSubmit={handleSignUp} className="space-y-6">
-                  <div className="space-y-3">
-                    <Label htmlFor="signup-name" className="text-lg font-semibold text-white">Full Name</Label>
+                <form onSubmit={handleSignUp} className="space-y-4 sm:space-y-6">
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signup-name" className="text-base sm:text-lg font-semibold text-white">Full Name</Label>
                     <Input
                       id="signup-name"
                       type="text"
@@ -240,11 +240,11 @@ export default function Auth() {
                       onChange={(e) => setSignUpData({ ...signUpData, name: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="signup-email" className="text-lg font-semibold text-white">Email Address</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signup-email" className="text-base sm:text-lg font-semibold text-white">Email Address</Label>
                     <Input
                       id="signup-email"
                       type="email"
@@ -253,11 +253,11 @@ export default function Auth() {
                       onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="signup-password" className="text-lg font-semibold text-white">Password</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signup-password" className="text-base sm:text-lg font-semibold text-white">Password</Label>
                     <Input
                       id="signup-password"
                       type="password"
@@ -266,11 +266,11 @@ export default function Auth() {
                       onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="signup-confirm-password" className="text-lg font-semibold text-white">Confirm Password</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="signup-confirm-password" className="text-base sm:text-lg font-semibold text-white">Confirm Password</Label>
                     <Input
                       id="signup-confirm-password"
                       type="password"
@@ -279,10 +279,10 @@ export default function Auth() {
                       onChange={(e) => setSignUpData({ ...signUpData, confirmPassword: e.target.value })}
                       disabled={loading}
                       required
-                      className="h-14 text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
+                      className="h-12 sm:h-14 text-base sm:text-lg border-2 border-white/20 focus:border-primary bg-white/5 text-white placeholder:text-white/50 transition-all duration-200 rounded-xl"
                     />
                   </div>
-                  <Button type="submit" className="w-full h-14 text-lg font-bold gradient-primary hover:neon-glow shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.02] btn-glow rounded-xl" disabled={loading}>
+                  <Button type="submit" className="w-full h-12 sm:h-14 text-base sm:text-lg font-bold gradient-primary hover:neon-glow shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.02] btn-glow rounded-xl" disabled={loading}>
                     {loading ? "Creating Account..." : "Create Account"}
                   </Button>
                 </form>

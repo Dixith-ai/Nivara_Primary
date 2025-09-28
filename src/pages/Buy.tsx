@@ -192,16 +192,16 @@ export default function Buy() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <div className="container mx-auto px-4 py-8 sm:py-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Product Information */}
           <div>
-            <h1 className="text-6xl font-black text-white mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-6xl font-black text-white mb-6 sm:mb-8 leading-tight">
               <span className="text-gradient">NIVARA</span>
               <br />
-              <span className="text-4xl text-white/90">Skin Health Scanner</span>
+              <span className="text-2xl sm:text-4xl text-white/90">Skin Health Scanner</span>
             </h1>
-            <p className="text-xl text-white/70 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/70 mb-6 sm:mb-8 leading-relaxed">
               AI-powered skin condition detection device with Raspberry Pi technology. 
               Accurate, affordable, and easy to use at home.
             </p>
@@ -215,46 +215,46 @@ export default function Buy() {
             </div>
 
             {/* Features */}
-            <div className="space-y-8">
-              <h3 className="text-4xl font-black text-gradient">Key Features</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start space-x-4 p-6 glass border-white/10 card-hover group">
-                  <div className="w-14 h-14 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:neon-glow transition-all duration-300">
-                    <Camera className="w-7 h-7 text-white" />
+            <div className="space-y-6 sm:space-y-8">
+              <h3 className="text-3xl sm:text-4xl font-black text-gradient">Key Features</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 glass border-white/10 card-hover group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:neon-glow transition-all duration-300">
+                    <Camera className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">High-Resolution Camera</h4>
-                    <p className="text-white/70">Raspberry Pi camera module for detailed skin imaging</p>
+                    <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">High-Resolution Camera</h4>
+                    <p className="text-white/70 text-sm sm:text-base">Raspberry Pi camera module for detailed skin imaging</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4 p-6 glass border-white/10 card-hover group">
-                  <div className="w-14 h-14 gradient-accent rounded-xl flex items-center justify-center flex-shrink-0 group-hover:neon-glow-green transition-all duration-300">
-                    <Cpu className="w-7 h-7 text-white" />
+                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 glass border-white/10 card-hover group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 gradient-accent rounded-xl flex items-center justify-center flex-shrink-0 group-hover:neon-glow-green transition-all duration-300">
+                    <Cpu className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">AI Processing</h4>
-                    <p className="text-white/70">Advanced machine learning for accurate detection</p>
+                    <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">AI Processing</h4>
+                    <p className="text-white/70 text-sm sm:text-base">Advanced machine learning for accurate detection</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4 p-6 glass border-white/10 card-hover group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-success to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-success/50 transition-all duration-300">
-                    <Wifi className="w-7 h-7 text-white" />
+                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 glass border-white/10 card-hover group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-success to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-success/50 transition-all duration-300">
+                    <Wifi className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Cloud Connectivity</h4>
-                    <p className="text-white/70">Seamless data sync to your personal dashboard</p>
+                    <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">Cloud Connectivity</h4>
+                    <p className="text-white/70 text-sm sm:text-base">Seamless data sync to your personal dashboard</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4 p-6 glass border-white/10 card-hover group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-warning to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-warning/50 transition-all duration-300">
-                    <Shield className="w-7 h-7 text-white" />
+                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 glass border-white/10 card-hover group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-warning to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-warning/50 transition-all duration-300">
+                    <Shield className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-2">Privacy Secure</h4>
-                    <p className="text-white/70">Your health data is encrypted and protected</p>
+                    <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">Privacy Secure</h4>
+                    <p className="text-white/70 text-sm sm:text-base">Your health data is encrypted and protected</p>
                   </div>
                 </div>
               </div>
@@ -345,87 +345,90 @@ export default function Buy() {
                 <Separator />
 
                 {/* Shipping Information */}
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Shipping Information</h3>
+                <div className="space-y-4 sm:space-y-6">
+                  <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Shipping Information</h3>
                   
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-3">
-                      <Label htmlFor="name" className="text-base font-medium">Full Name *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2 sm:space-y-3">
+                      <Label htmlFor="name" className="text-sm sm:text-base font-medium">Full Name *</Label>
                       <Input
                         id="name"
                         value={shippingInfo.name}
                         onChange={(e) => setShippingInfo({ ...shippingInfo, name: e.target.value })}
                         required
-                        className="h-12 text-base border-2 focus:border-primary transition-colors duration-200"
+                        className="h-10 sm:h-12 text-sm sm:text-base border-2 focus:border-primary transition-colors duration-200"
                         placeholder="Enter your full name"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="phone" className="text-base font-medium">Phone *</Label>
+                    <div className="space-y-2 sm:space-y-3">
+                      <Label htmlFor="phone" className="text-sm sm:text-base font-medium">Phone *</Label>
                       <Input
                         id="phone"
                         type="tel"
                         value={shippingInfo.phone}
                         onChange={(e) => setShippingInfo({ ...shippingInfo, phone: e.target.value })}
                         required
-                        className="h-12 text-base border-2 focus:border-primary transition-colors duration-200"
+                        className="h-10 sm:h-12 text-sm sm:text-base border-2 focus:border-primary transition-colors duration-200"
                         placeholder="Enter your phone number"
                       />
                     </div>
                   </div>
                   
-                  <div className="space-y-3">
-                    <Label htmlFor="email" className="text-base font-medium">Email *</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="email" className="text-sm sm:text-base font-medium">Email *</Label>
                     <Input
                       id="email"
                       type="email"
                       value={shippingInfo.email}
                       onChange={(e) => setShippingInfo({ ...shippingInfo, email: e.target.value })}
                       required
-                      className="h-12 text-base border-2 focus:border-primary transition-colors duration-200"
+                      className="h-10 sm:h-12 text-sm sm:text-base border-2 focus:border-primary transition-colors duration-200"
                       placeholder="Enter your email address"
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <Label htmlFor="address" className="text-base font-medium">Address *</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="address" className="text-sm sm:text-base font-medium">Address *</Label>
                     <Textarea
                       id="address"
                       value={shippingInfo.address}
                       onChange={(e) => setShippingInfo({ ...shippingInfo, address: e.target.value })}
                       rows={3}
                       required
-                      className="text-base border-2 focus:border-primary transition-colors duration-200"
+                      className="text-sm sm:text-base border-2 focus:border-primary transition-colors duration-200"
                       placeholder="Enter your complete address"
                     />
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="city">City *</Label>
+                      <Label htmlFor="city" className="text-sm sm:text-base">City *</Label>
                       <Input
                         id="city"
                         value={shippingInfo.city}
                         onChange={(e) => setShippingInfo({ ...shippingInfo, city: e.target.value })}
                         required
+                        className="h-10 sm:h-12 text-sm sm:text-base"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="state">State *</Label>
+                      <Label htmlFor="state" className="text-sm sm:text-base">State *</Label>
                       <Input
                         id="state"
                         value={shippingInfo.state}
                         onChange={(e) => setShippingInfo({ ...shippingInfo, state: e.target.value })}
                         required
+                        className="h-10 sm:h-12 text-sm sm:text-base"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="pincode">PIN Code *</Label>
+                      <Label htmlFor="pincode" className="text-sm sm:text-base">PIN Code *</Label>
                       <Input
                         id="pincode"
                         value={shippingInfo.pincode}
                         onChange={(e) => setShippingInfo({ ...shippingInfo, pincode: e.target.value })}
                         required
+                        className="h-10 sm:h-12 text-sm sm:text-base"
                       />
                     </div>
                   </div>

@@ -25,6 +25,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import logo from "@/logo/Nivara_logo.png";
+import MobileNavigation from "@/components/MobileNavigation";
 
 interface Profile {
   name: string;
@@ -193,37 +194,38 @@ export default function Dashboard() {
       {/* Navigation */}
       <nav className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-6">
-            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg">
+          <div className="flex items-center space-x-3 sm:space-x-6">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity duration-200">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg">
                 <img src={logo} alt="NIVARA Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-2xl font-bold text-foreground bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">NIVARA</span>
+              <span className="text-xl sm:text-2xl font-bold text-foreground bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">NIVARA</span>
             </Link>
             
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4">
               <Link to="/">
-                <Button variant="ghost" className="hover:bg-primary/5 transition-colors duration-200">
+                <Button variant="ghost" size="sm" className="hover:bg-primary/5 transition-colors duration-200">
                   <Home className="w-4 h-4 mr-2" />
                   Home
                 </Button>
               </Link>
               <Link to="/doctors">
-                <Button variant="ghost" className="hover:bg-primary/5 transition-colors duration-200">Find Doctors</Button>
+                <Button variant="ghost" size="sm" className="hover:bg-primary/5 transition-colors duration-200">Find Doctors</Button>
               </Link>
               <Link to="/service-centers">
-                <Button variant="ghost" className="hover:bg-primary/5 transition-colors duration-200">Service Centers</Button>
+                <Button variant="ghost" size="sm" className="hover:bg-primary/5 transition-colors duration-200">Service Centers</Button>
               </Link>
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <span className="text-muted-foreground font-medium hidden sm:block">Welcome, {profile?.name || user.email}</span>
-            <Button variant="ghost" onClick={handleSignOut} className="hover:bg-destructive/5 transition-colors duration-200">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <span className="text-muted-foreground font-medium hidden md:block text-sm sm:text-base">Welcome, {profile?.name || user.email}</span>
+            <Button variant="ghost" size="sm" onClick={handleSignOut} className="hidden sm:flex hover:bg-destructive/5 transition-colors duration-200">
               <LogOut className="w-4 h-4 mr-2" />
-              <span className="hidden sm:inline">Sign Out</span>
+              Sign Out
             </Button>
+            <MobileNavigation />
           </div>
         </div>
       </nav>
@@ -236,24 +238,24 @@ export default function Dashboard() {
         </div>
         
         {/* Dashboard Header */}
-        <div className="flex items-center justify-between mb-8 relative z-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 relative z-10 space-y-4 sm:space-y-0">
           <div>
-            <h1 className="text-4xl font-bold text-foreground mb-2 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">Dashboard</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">Dashboard</h1>
+            <p className="text-base sm:text-lg text-muted-foreground">
               Monitor your skin health and manage your NIVARA devices
             </p>
           </div>
           
           {/* Quick Actions */}
-          <div className="flex items-center space-x-3">
-            <Link to="/">
-              <Button variant="outline" className="hover:bg-primary/5 transition-colors duration-200">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
+            <Link to="/" className="w-full sm:w-auto">
+              <Button variant="outline" size="sm" className="hover:bg-primary/5 transition-colors duration-200 w-full sm:w-auto">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Button>
             </Link>
-            <Link to="/buy">
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300">
+            <Link to="/buy" className="w-full sm:w-auto">
+              <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 w-full sm:w-auto">
                 <Plus className="w-4 h-4 mr-2" />
                 Buy Device
               </Button>
@@ -262,69 +264,69 @@ export default function Dashboard() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 relative z-10">
           <Card className="border-0 shadow-lg bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-sm font-medium">Total Scans</p>
-                  <p className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">{recentScans.length}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm font-medium">Total Scans</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">{recentScans.length}</p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Activity className="w-6 h-6 text-primary" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
               </div>
             </CardContent>
           </Card>
           
           <Card className="border-0 shadow-lg bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-sm font-medium">Active Devices</p>
-                  <p className="text-3xl font-bold text-accent group-hover:scale-110 transition-transform duration-300">{devices.filter(d => d.status === 'active').length}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm font-medium">Active Devices</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-accent group-hover:scale-110 transition-transform duration-300">{devices.filter(d => d.status === 'active').length}</p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-accent/10 to-accent/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Scan className="w-6 h-6 text-accent" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/10 to-accent/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Scan className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                 </div>
               </div>
             </CardContent>
           </Card>
           
           <Card className="border-0 shadow-lg bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-sm font-medium">This Month</p>
-                  <p className="text-3xl font-bold text-success group-hover:scale-110 transition-transform duration-300">{recentScans.length}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm font-medium">This Month</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-success group-hover:scale-110 transition-transform duration-300">{recentScans.length}</p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-success/10 to-success/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Calendar className="w-6 h-6 text-success" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-success/10 to-success/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-success" />
                 </div>
               </div>
             </CardContent>
           </Card>
           
           <Card className="border-0 shadow-lg bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-sm font-medium">Avg. Confidence</p>
-                  <p className="text-3xl font-bold text-warning group-hover:scale-110 transition-transform duration-300">
+                  <p className="text-muted-foreground text-xs sm:text-sm font-medium">Avg. Confidence</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-warning group-hover:scale-110 transition-transform duration-300">
                     {recentScans.length > 0 
                       ? Math.round(recentScans.reduce((acc, scan) => acc + (scan.confidence_score || 0), 0) / recentScans.length * 100)
                       : 0}%
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-warning/10 to-warning/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="w-6 h-6 text-warning" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-warning/10 to-warning/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-warning" />
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 relative z-10">
           {/* Recent Scans */}
           <div className="lg:col-span-2">
             <Card className="border-0 shadow-2xl bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm hover:shadow-3xl transition-all duration-300">

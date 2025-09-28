@@ -82,6 +82,35 @@
 }
 
 @layer components {
+  /* Mobile-first responsive design */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Touch-friendly button sizes */
+    button, .btn {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Improved touch targets */
+    input, textarea, select {
+      min-height: 44px;
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Better spacing for mobile */
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+    
+    .space-y-6 > * + * {
+      margin-top: 1.5rem;
+    }
+  }
+
   /* Glassmorphism Effects */
   .glass {
     background: rgba(255, 255, 255, 0.05);
@@ -187,5 +216,53 @@
 
   .btn-glow:hover::before {
     left: 100%;
+  }
+
+  /* Mobile Performance Optimizations */
+  @media (max-width: 768px) {
+    /* Reduce animations on mobile for better performance */
+    .float {
+      animation: none;
+    }
+    
+    .card-hover:hover {
+      transform: none;
+    }
+    
+    /* Optimize backdrop filters for mobile */
+    .glass {
+      backdrop-filter: blur(5px);
+    }
+    
+    /* Reduce complex gradients on mobile */
+    .gradient-primary {
+      background: hsl(217, 91%, 60%);
+    }
+    
+    .gradient-accent {
+      background: hsl(142, 76%, 36%);
+    }
+    
+    /* Simplify neon effects on mobile */
+    .neon-glow {
+      box-shadow: 0 0 10px hsl(217, 91%, 60%);
+    }
+    
+    .neon-glow-green {
+      box-shadow: 0 0 10px hsl(142, 76%, 36%);
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .card-hover:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .btn-glow:hover::before {
+      left: -100%;
+    }
   }
 }
