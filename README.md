@@ -197,6 +197,130 @@ nivara/
 
 ---
 
+## 🐳 Docker Deployment
+
+### Prerequisites
+- Docker installed on your system
+- Docker daemon running
+
+### Build Docker Image
+
+```bash
+docker build -t nivara-app:latest .
+```
+
+### Run Container
+
+```bash
+docker run -d \
+  --name nivara-app \
+  --restart unless-stopped \
+  -p 80:80 \
+  nivara-app:latest
+```
+
+The application will be available at `http://localhost`
+
+### Stop and Remove Container
+
+```bash
+docker stop nivara-app
+docker rm nivara-app
+```
+
+### View Container Logs
+
+```bash
+docker logs nivara-app
+```
+
+---
+
+## 🚀 CI/CD Setup with Jenkins
+
+This project is configured for automated CI/CD using Jenkins, Docker, and GitHub.
+
+### Prerequisites
+
+1. **Jenkins** installed on AWS EC2 instance
+2. **Docker** installed and configured on Jenkins server
+3. **GitHub** repository with webhook access
+4. **Jenkins plugins**:
+   - Docker Pipeline
+   - Git
+   - GitHub Integration
+
+### Jenkins Configuration
+
+1. **Create a New Pipeline Job**
+   - Go to Jenkins Dashboard → New Item
+   - Select "Pipeline"
+   - Name: `nivara-cicd`
+
+2. **Configure Pipeline**
+   - Pipeline Definition: "Pipeline script from SCM"
+   - SCM: Git
+   - Repository URL: Your GitHub repository URL
+   - Branch: `main` (or `master`)
+   - Script Path: `Jenkinsfile`
+
+3. **Set Up GitHub Webhook** (Optional)
+   - In GitHub repository: Settings → Webhooks → Add webhook
+   - Payload URL: `http://your-jenkins-server:8080/github-webhook/`
+   - Content type: `application/json`
+   - Events: "Just the push event"
+   - This enables automatic builds on every push
+
+### Pipeline Stages
+
+The Jenkinsfile defines the following automated stages:
+
+1. **Pull Code** - Pulls latest code from GitHub
+2. **Build Docker Image** - Builds the Docker image with build number tag
+3. **Stop Old Container** - Gracefully stops and removes existing container
+4. **Run New Container** - Starts new container on port 80
+5. **Health Check** - Verifies the application is running correctly
+
+### Manual Build Trigger
+
+You can also trigger builds manually:
+- Go to Jenkins job → "Build Now"
+
+### Environment Variables
+
+If your application requires environment variables, you can:
+
+1. **Add to Dockerfile** (build-time):
+   ```dockerfile
+   ARG VITE_SUPABASE_URL
+   ARG VITE_SUPABASE_ANON_KEY
+   ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+   ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+   ```
+
+2. **Pass to Docker run** (runtime):
+   ```bash
+   docker run -d \
+     --name nivara-app \
+     -p 80:80 \
+     -e VITE_SUPABASE_URL=your_url \
+     -e VITE_SUPABASE_ANON_KEY=your_key \
+     nivara-app:latest
+   ```
+
+3. **Configure in Jenkins**:
+   - Pipeline → Configure → Environment Variables
+   - Or use Jenkins Credentials for sensitive data
+
+### Troubleshooting
+
+- **Build fails**: Check Jenkins console output and Docker logs
+- **Container won't start**: Verify port 80 is not in use: `sudo lsof -i :80`
+- **Permission denied**: Ensure Jenkins user is in docker group: `sudo usermod -aG docker jenkins`
+- **Webhook not working**: Verify Jenkins URL is accessible from GitHub
+
+---
+
 ## 🌐 Live Demo
 
 **Experience NIVARA in action:**
